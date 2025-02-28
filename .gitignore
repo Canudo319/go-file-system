@@ -1,0 +1,13 @@
+#Air
+/tmp
+
+#templ
+*_templ.go
+
+#Node
+/node_modules
+package-lock.json
+output.css
+
+#Vscode
+/.vscode

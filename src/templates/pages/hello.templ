@@ -1,0 +1,11 @@
+package pages
+
+import (
+    "github.com/Canudo319/go-file-system/src/templates/layouts"
+)
+
+templ Hello(name string) {
+    @layouts.DefaultLayout(){
+        <div class="px-2 py-4 bg-amber-500 font-bold text-xl">{ name }</div>
+    }
+}
