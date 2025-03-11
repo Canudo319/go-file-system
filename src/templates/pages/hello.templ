@@ -5,7 +5,10 @@ import (
 )
 
 templ Hello(name string) {
-    @layouts.DefaultLayout(){
+    @layouts.NewDefaultLayout(layouts.DefaultLayoutProps{
+        Title: name,
+        Number: 12,
+    }){
         <div class="px-2 py-4 bg-amber-500 font-bold text-xl">{ name }</div>
     }
 }

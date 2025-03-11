@@ -1,15 +1,40 @@
 package layouts
 
-templ DefaultLayout() {
+import(
+    "strconv"
+)
+
+type DefaultLayoutProps struct {
+    Title  string
+    Number int
+}
+
+func NewDefaultLayout(configProps... DefaultLayoutProps) templ.Component {
+    props := DefaultLayoutProps{
+        Title: "Placeholder",
+    }
+
+    if len(configProps) > 0 {
+        props = configProps[0]
+    }
+
+    return defaultLayout(props)
+}
+
+templ defaultLayout(props DefaultLayoutProps) {
     <!doctype html>
     <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/public/css/output.css" rel="stylesheet">
+        <title>{ props.Title }</title>
     </head>
         <body>
             { children... }
+        <footer>
+            { strconv.Itoa(props.Number) }
+        </footer>
         </body>
     </html>
 }
